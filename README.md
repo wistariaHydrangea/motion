@@ -55,9 +55,11 @@ Register shell script with cron
 ```
 
 Confirm registered with cron
+
 `crontab -e`
 
 Starting motion
+
 `motion`
 
 ## Reference
