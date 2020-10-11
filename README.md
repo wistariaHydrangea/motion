@@ -20,6 +20,7 @@
 ## Configuration
 
 create folder for storing pictures
+
 `mkdir -p /home/camera`
 
 Rewrite motion.conf
