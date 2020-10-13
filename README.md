@@ -49,15 +49,15 @@ ufw allow 8081
 ufw reload
 ```
 
-Register shell script with cron
-
-```nano
-0 0 * * * sh <File Path>
-```
-
 Confirm registered with cron
 
 `crontab -e`
+
+Register shell script with cron
+
+```nano
+0 0 * * * sh <Shell File Path>
+```
 
 Starting motion
 
