@@ -19,7 +19,6 @@ fi
 
 ### Rewrite of motion.conf
 sed -i -e 's/daemon off/deamon on/g' /etc/motion/motion.conf
-sed -i -e 's/'$yesterday'/'$today'/g' /etc/motion/motion.conf
 sed -i -e 's/target_dir \/var\/motion-log\/picture\/'$yesterday'/target_dir \/var\/motion-log\/picture\/'$today'/g' /etc/motion/motion.conf
 sed -i -e 's/picture_output off/picture_output on/g' /etc/motion/motion.conf
 sed -i -e 's/movie_output on/movie_output off/g' /etc/motion/motion.conf
