@@ -10,44 +10,36 @@
 ## Construction environment
 
 - Raspberry pi 3B+
-- ubuntu server 20.04 LTS
+- ubuntu 20.04
 - ufw 0.36
+- motion 4.3.0
+- samba 4.11.6
 
 ## Install packages
 
-`apt install -y motion`
-
-## Configuration
-
-create folder for storing pictures
-
-`mkdir -p /home/camera`
-
-Rewrite motion.conf
-
-(etc/motion/motion.conf)
-
-```conf
-11 # Start in daemon (background) mode and release terminal.
-12 daemon on
-
-41 # Target directory for pictures, snapshots and movies
-42 target_dir /home/camera/<today>
-
-237 # Output pictures when motion is detected
-238 picture_output on
-
-375 # Restrict stream connections to the localhost.
-376 stream_localhost off
+```ter minal
+wget https://github.com/Motion-Project/motion/archive/Release-4.3.0.zip
 ```
-
-Release using port for motion
 
 ```terminal
-ufw enable
-ufw allow 8081
-ufw reload
+apt install autoconf automake autopoint build-essential pkgconf libtool libzip-dev libjpeg-dev git libavformat-dev libavcodec-dev libavutil-dev libswscale-dev libavdevice-dev libwebp-dev gettext libmicrohttpd-dev
+unzip Release-4.3.0.zip
+cd motion-Release-4.3.0
+autoreconf -fiv && ./configure && make && make install
 ```
+
+## samba setup
+
+create on linux and samba
+
+`sudo adduser -m user01`
+Enter password
+
+`sudo pdbedit -L -a user01`
+Enter password
+Enter password for confirmation
+
+## Configuration
 
 Confirm registered with cron
 
@@ -65,5 +57,8 @@ Starting motion
 
 ## Reference
 
-- [https://motion-project.github.io/4.2.2/motion_config.html](https://motion-project.github.io/4.2.2/motion_config.html)
-- [https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.2.0/com.ibm.zos.v2r2.bpxa500/kil.htm](https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.2.0/com.ibm.zos.v2r2.bpxa500/kil.htm)
+- [Releases · Motion-Project/motion · GitHub](https://github.com/Motion-Project/motion/releases)
+- [install Motion](https://motion-project.github.io/motion_build.html)
+- [コマンドの途中で聞いてくる yes を自動入力したい？それ yes](https://www.agent-grow.com/self20percent/2018/08/06/linux-command-auto-yes/)
+- [`sed` で検索文字列を含む行の行番号だけを出力する方法 ...](https://genzouw.com/entry/2019/07/08/084532/1663/)
+- [Samba.org](https://www.samba.org/)
