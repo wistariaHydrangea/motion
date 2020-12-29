@@ -1,12 +1,13 @@
 #!/bin/bash
 
 today=$(date "+%Y%m%d")
-
 motion_conf=/etc/motion/motion.conf
+
+mkdir -p /var/motion-log/picture
 
 ### Backup original file
 if [[ -e /etc/motion/motion.conf.old ]]; then
-  cp /etc/motion/motion.conf /etc/motion/motion.conf.old
+  cp $motion_conf /etc/motion/motion.conf.old
 fi
 
 ### Rewrite of motion.conf
