@@ -48,7 +48,7 @@ Confirm registered with cron
 Register shell script with cron
 
 ```nano
-0 0 * * * sh <Shell File Path>
+0 0 * * * sh <path-rewrite.sh directory Path>
 ```
 
 Starting motion
@@ -60,5 +60,5 @@ Starting motion
 - [Releases · Motion-Project/motion · GitHub](https://github.com/Motion-Project/motion/releases)
 - [install Motion](https://motion-project.github.io/motion_build.html)
 - [コマンドの途中で聞いてくる yes を自動入力したい？それ yes](https://www.agent-grow.com/self20percent/2018/08/06/linux-command-auto-yes/)
-- [`sed` で検索文字列を含む行の行番号だけを出力する方法 ...](https://genzouw.com/entry/2019/07/08/084532/1663/)
+- [\`sed` で検索文字列を含む行の行番号だけを出力する方法 ...](https://genzouw.com/entry/2019/07/08/084532/1663/)
 - [Samba.org](https://www.samba.org/)
