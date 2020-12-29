@@ -32,11 +32,11 @@ autoreconf -fiv && ./configure && make && make install
 
 create on linux and samba
 
-`sudo adduser -m user01`
+`sudo adduser -m user01`  
 Enter password
 
-`sudo pdbedit -L -a user01`
-Enter password
+`sudo pdbedit -L -a user01`  
+Enter password  
 Enter password for confirmation
 
 ## Configuration
