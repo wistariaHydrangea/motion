@@ -32,11 +32,11 @@ autoreconf -fiv && ./configure && make && make install
 
 create on linux and samba
 
-`sudo adduser -m user01`  
+`sudo adduser -m user01`
 Enter password
 
-`sudo pdbedit -L -a user01`  
-Enter password  
+`sudo pdbedit -L -a user01`
+Enter password
 Enter password for confirmation
 
 ## Configuration
@@ -48,7 +48,7 @@ Confirm registered with cron
 Register shell script with cron
 
 ```nano
-0 0 * * * sh <path-rewrite.sh directory Path>
+0 0 * * * sh <directory path of path-rewrite.sh>
 ```
 
 Starting motion
