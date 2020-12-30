@@ -1,11 +1,11 @@
 #!/bin/bash
 
+smb_conf=/etc/samba/smb.conf
+
 ### Backup original file
 if [[ -e /etc/samba/smb.conf.old ]]; then
-  cp /etc/samba/smb.conf /etc/samba/smb.conf.old
+  cp $smb_conf /etc/samba/smb.conf.old
 fi
-
-smb_conf=/etc/samba/smb.conf
 
 samba_global_number=$(($(sed -n "/\[global]/=" $smb_conf) + 2))
 sed -i -e $samba_global_number'i\
