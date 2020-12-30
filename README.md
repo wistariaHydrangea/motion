@@ -9,11 +9,13 @@
 
 ## Construction environment
 
-- Raspberry pi 3B+
-- ubuntu 20.04
-- ufw 0.36
-- motion 4.3.0
-- samba 4.11.6
+| content | detail |
+| :-----: | :----: |
+| Raspberry pi | 3B+ |
+| ubuntu | 20.04 |
+| ufw | 0.36 |
+| motion | 4.3.0 |
+| samba | 4.11.6 |
 
 ## Install packages
 
