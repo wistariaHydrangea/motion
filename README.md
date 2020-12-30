@@ -1,4 +1,4 @@
-# Construction method for motion
+# Construction method motion+samba
 
 ## Contents List
 
@@ -17,33 +17,51 @@
 
 ## Install packages
 
-```ter minal
-wget https://github.com/Motion-Project/motion/archive/Release-4.3.0.zip
+### motion
+
+```
+> apt install -y autoconf automake autopoint build-essential pkgconf libtool libzip-dev libjpeg-dev git libavformat-dev libavcodec-dev libavutil-dev libswscale-dev libavdevice-dev libwebp-dev gettext libmicrohttpd-dev
+> wget https://github.com/Motion-Project/motion/archive/Release-4.3.0.zip
+> unzip Release-4.3.0.zip
+> cd motion-Release-4.3.0
+> autoreconf -fiv && ./configure && make && make install
 ```
 
-```terminal
-apt install autoconf automake autopoint build-essential pkgconf libtool libzip-dev libjpeg-dev git libavformat-dev libavcodec-dev libavutil-dev libswscale-dev libavdevice-dev libwebp-dev gettext libmicrohttpd-dev
-unzip Release-4.3.0.zip
-cd motion-Release-4.3.0
-autoreconf -fiv && ./configure && make && make install
+### samba
+
+```
+> apt install -y samba
 ```
 
-## samba setup
+## Create user for samba
 
 create on linux and samba
 
-`sudo adduser -m user01`
-Enter password
+```
+> adduser user01
+```
 
-`sudo pdbedit -L -a user01`
-Enter password
-Enter password for confirmation
+```
+> smbpasswd -a user01
+New SMB password: <--任意のパスワードを入力
+Retype new SMB password: <--再入力
+Added user user01.
+```
+
+### When deleting a user
+
+```
+> smbpasswd -x user01
+Deleted user user01.
+```
 
 ## Configuration
 
 Confirm registered with cron
 
-`crontab -e`
+```
+> crontab -e
+```
 
 Register shell script with cron
 
@@ -53,7 +71,9 @@ Register shell script with cron
 
 Starting motion
 
-`motion`
+```
+> motion
+```
 
 ## Reference
 

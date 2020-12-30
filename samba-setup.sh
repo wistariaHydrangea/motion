@@ -1,22 +1,21 @@
 #!/bin/bash
 
-### Backup original file
-if [[ -e /etc/samba/smb.conf.old ]]; then
-  cp /etc/samba/smb.conf /etc/samba/smb.conf.old
-fi
-
 smb_conf=/etc/samba/smb.conf
 
-samba_number=$(sed -n "/#======================= Share Definitions =======================/=" $smb_conf)+1
-samba_global_number=$(sed -n "/[global]/=" $smb_conf)+1
+### Backup original file
+if [[ -e /etc/samba/smb.conf.old ]]; then
+  cp $smb_conf /etc/samba/smb.conf.old
+fi
 
-sed -e ''$samba_global_number'i\
+samba_global_number=$(($(sed -n "/\[global]/=" $smb_conf) + 2))
+sed -i -e $samba_global_number'i\
   unix charset = UTF-8\
   dos charset = CP932\
 ' $smb_conf
 
-sed -e ''$samba_number'i\
-[motion_log]\
+samba_path_number=$(($(sed -n "/\#======================= Share Definitions =======================/=" $smb_conf) + 2))
+sed -i -e $samba_path_number'i\
+\[motion_log]\
   comment = picture and movie of motion\
   path = /var/motion-log/\
   writable = yes\
