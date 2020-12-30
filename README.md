@@ -33,7 +33,7 @@
 > apt install -y samba
 ```
 
-## Create user for "samba"
+## Create user for samba
 
 create on linux and samba
 
@@ -45,14 +45,14 @@ create on linux and samba
 > smbpasswd -a user01
 New SMB password: <--任意のパスワードを入力
 Retype new SMB password: <--再入力
-Added user <User Name>.
+Added user user01.
 ```
 
 ### When deleting a user
 
 ```
-> smbpasswd -x <User Name>
-Deleted user <User Name>.
+> smbpasswd -x user01
+Deleted user user01.
 ```
 
 ## Configuration
