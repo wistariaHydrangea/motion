@@ -68,13 +68,13 @@ Added user user01.
 Deleted user user01.
 ```
 
-Confirm registered with cron
+### Register shell script with cron
 
 ```
 > crontab -e
-```
+```  
 
-Register shell script with cron
+To save the settings, use the following command  
 ctrl+X,Y,ctrl+M
 
 ```nano
@@ -104,13 +104,16 @@ Starting motion
 > motion -b
 ```
 
-Access "http://\<IP address>:8081" at browser
-
 When stop a motion
 
 ```
 > pkill motion
 ```
+
+### Monitoring at browser
+
+Access `http://<IP address>:8081` at browser
+
 
 ## Reference
 
