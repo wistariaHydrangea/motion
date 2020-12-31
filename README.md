@@ -68,16 +68,46 @@ Added user user01.
 Deleted user user01.
 ```
 
-Confirm registered with cron
+### Register shell script with cron
 
 ```
 > crontab -e
-```
+no crontab for root - using an empty one
 
-Register shell script with cron
+Select an editor.  To change later, run 'select-editor'.
+  1. /bin/nano        <---- easiest
+  2. /usr/bin/vim.basic
+  3. /usr/bin/vim.tiny
+  4. /bin/ed
+
+Choose 1-4 [1]: 1
+
+crontab: installing new crontab
+crontab: installing new crontab
+```  
+
+To save the settings, use the following command  
+ctrl+X,Y,ctrl+M
 
 ```nano
 0 0 * * * sh <directory path of path-rewrite.sh>
+```
+
+Run cron service and check running cron service 
+
+```
+> systemctl start cron
+Starting cron (via systemctl): cron.service.
+> systemctl status cron
+● cron.service - Regular background program processing daemon
+     Loaded: loaded (/lib/systemd/system/cron.service; enabled; vendor preset: enabled)
+     Active: active (running) since Wed 2020-04-01 17:24:17 UTC; 8 months 30 days ago
+       Docs: man:cron(8)
+   Main PID: 1237 (cron)
+      Tasks: 1 (limit: 972)
+     CGroup: /system.slice/cron.service
+             └─1237 /usr/sbin/cron -f
+
 ```
 
 Starting motion
@@ -86,13 +116,16 @@ Starting motion
 > motion -b
 ```
 
-Access "http://\<IP address>:8081" at browser
-
 When stop a motion
 
 ```
 > pkill motion
 ```
+
+### Monitoring at browser
+
+Access `http://<IP address>:8081` at browser
+
 
 ## Reference
 
