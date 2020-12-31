@@ -2,9 +2,11 @@
 
 ## Contents List
 
+- Advance preparation
 - Construction environment
-- Install packages
-- Configuration
+- Install necessary packages
+- Run script
+- Create user for access to samba
 - Reference
 
 ## Construction environment
@@ -17,30 +19,39 @@
 | motion | 4.3.0 |
 | samba | 4.11.6 |
 
-## Install packages
-
-### motion
+## Advance preparation
 
 ```
-> apt install -y autoconf automake autopoint build-essential pkgconf libtool libzip-dev libjpeg-dev git libavformat-dev libavcodec-dev libavutil-dev libswscale-dev libavdevice-dev libwebp-dev gettext libmicrohttpd-dev
-> wget https://github.com/Motion-Project/motion/archive/Release-4.3.0.zip
-> unzip Release-4.3.0.zip
-> cd motion-Release-4.3.0
-> autoreconf -fiv && ./configure && make && make install
+> apt upgrade -y
+> ufw allow 22/tcp
+> ufw enable
+> ufw reload
 ```
 
-### samba
+## Install necessary packages
 
 ```
-> apt install -y samba
+> apt install -y git motion samba
+> git clone https://github.com/wistariaHydrangea/motion.git
 ```
 
-## Create user for samba
+## Run script
+
+```
+> bash motion-setup.sh && bash samba-setup.sh
+```
+
+## Create user for access to samba
 
 create on linux and samba
 
 ```
-> adduser user01
+> pdbedit -a user01
+new password: <--任意のパスワードを入力
+retype new password: <--再入力
+
+> pdbedit -L
+user01:1001:
 ```
 
 ```
@@ -57,8 +68,6 @@ Added user user01.
 Deleted user user01.
 ```
 
-## Configuration
-
 Confirm registered with cron
 
 ```
@@ -74,7 +83,15 @@ Register shell script with cron
 Starting motion
 
 ```
-> motion
+> motion -b
+```
+
+Access "http://\<IP address>:8081" at browser
+
+When stop a motion
+
+```
+> pkill motion
 ```
 
 ## Reference
