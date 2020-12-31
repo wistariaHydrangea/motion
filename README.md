@@ -75,9 +75,27 @@ Confirm registered with cron
 ```
 
 Register shell script with cron
+ctrl+X,Y,ctrl+M
 
 ```nano
 0 0 * * * sh <directory path of path-rewrite.sh>
+```
+
+Run cron service and check running cron service 
+
+```
+> systemctl start cron
+Starting cron (via systemctl): cron.service.
+> systemctl status cron
+● cron.service - Regular background program processing daemon
+     Loaded: loaded (/lib/systemd/system/cron.service; enabled; vendor preset: enabled)
+     Active: active (running) since Wed 2020-04-01 17:24:17 UTC; 8 months 30 days ago
+       Docs: man:cron(8)
+   Main PID: 1237 (cron)
+      Tasks: 1 (limit: 972)
+     CGroup: /system.slice/cron.service
+             └─1237 /usr/sbin/cron -f
+
 ```
 
 Starting motion
