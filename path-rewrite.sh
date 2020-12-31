@@ -10,6 +10,8 @@ motion_conf=/etc/motion/motion.conf
 ### Create Folder of today
 mkdir -p ${picture_dir}${today}
 
+rm -rf /var/motion-log/picture/$yesterday
+
 ### Rewrite of motion.conf
 sed -i -e 's/target_dir \/var\/motion-log\/picture\/'$yesterday'/target_dir \/var\/motion-log\/picture\/'$today'/g' $motion_conf
 

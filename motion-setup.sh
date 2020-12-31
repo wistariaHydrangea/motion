@@ -6,7 +6,7 @@ motion_conf=/etc/motion/motion.conf
 mkdir -p /var/motion-log/picture
 
 ### Backup original file
-if [[ -e /etc/motion/motion.conf.old ]]; then
+if [[ /etc/motion/motion.conf.old ]]; then
   cp $motion_conf /etc/motion/motion.conf.old
 fi
 

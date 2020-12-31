@@ -3,7 +3,7 @@
 smb_conf=/etc/samba/smb.conf
 
 ### Backup original file
-if [[ -e /etc/samba/smb.conf.old ]]; then
+if [[ /etc/samba/smb.conf.old ]]; then
   cp $smb_conf /etc/samba/smb.conf.old
 fi
 
